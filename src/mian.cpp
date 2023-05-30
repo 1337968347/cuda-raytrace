@@ -1,5 +1,5 @@
 #include "./core/pbrt.h"
-#include "./core/transform.h"
+#include "./core/transform.cpp"
 
 int main(int argc, const char** argv) {
     Matrix4x4 m1;

@@ -228,11 +228,11 @@ inline void Transform::operator()(const RayDifferential& r,
     (*this)(r.ryDirection, &rt->ryDirection);
 }
 
-class AnimatedTransform {
-   public:
-   private:
-    const float startTime, endTime;
-    const Transform *startTransform, *endTransform;
-    const bool actuallyAnimated;
-    Vector T[2];
-};
+// class AnimatedTransform {
+//    public:
+//    private:
+//     const float startTime, endTime;
+//     const Transform *startTransform, *endTransform;
+//     const bool actuallyAnimated;
+//     Vector T[2];
+// };

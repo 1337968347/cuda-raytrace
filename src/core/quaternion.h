@@ -1,6 +1,5 @@
 #pragma once
 
-#include "geometry.h"
 #include "pbrt.h"
 
 struct Quaternion {
