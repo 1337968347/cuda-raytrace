@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cstring>
+#include <fstream>
+
 class ImageData
 {
 private:
@@ -32,7 +34,7 @@ public:
     unsigned char *getData() const { return data; }
 
     // 设置像素值
-    void setPixel(int x, int y, Vector)
+    void setPixel(int x, int y, const unsigned int &r, const unsigned int &g, const unsigned int &b, const unsigned int &a)
     {
         int offset = (x + y * width) * 4; // 计算偏移量
         data[offset] = r;
@@ -42,7 +44,7 @@ public:
     }
 
     // 获取像素值
-    void getPixel(int x, int y, unsigned char &r, unsigned char &g, unsigned char &b, unsigned char &a) const
+    void getPixel(int x, int y, unsigned int &r, unsigned int &g, unsigned int &b, unsigned int &a) const
     {
         int offset = (x + y * width) * 4; // 计算偏移量
         r = data[offset];
@@ -54,7 +56,26 @@ public:
     // 保存图像到文件
     bool save(const char *filename) const
     {
-        // TODO: 实现保存图像的代码
+        const int max_color_value = 255;
+        std::ofstream image(filename);
+        image << "P3" << std::endl;
+        image << width << " " << height << std::endl;
+        image << max_color_value << std::endl;
+
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                int idx = (y * width + x) * 4;
+                int red = data[idx];
+                int green = data[idx + 1];
+                int blue = data[idx + 2];
+                image << red << " " << green << " " << blue << " ";
+            }
+            image << std::endl;
+        }
+
+        image.close();
         return true;
     }
 };

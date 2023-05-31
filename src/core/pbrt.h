@@ -31,8 +31,14 @@ inline float Clamp(float val, float min, float max)
     return val;
 }
 
+inline float Radians(float deg)
+{
+    return ((float)M_PI / 180.f) * deg;
+}
+
 #include "geometry.h"
 #include "probes.h"
 #include "transform.h"
 #include "quaternion.h"
 #include "shape.h"
+#include "image.h"

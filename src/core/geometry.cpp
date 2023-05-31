@@ -1,4 +1,4 @@
-#include "geometry.h"
+#include "pbrt.h"
 
 BBox Union(const BBox& b, const Point& p) {
     BBox ret = b;
