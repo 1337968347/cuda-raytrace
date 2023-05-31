@@ -6,7 +6,7 @@
 int main(int argc, const char** argv) {
     
     
-        const int width = 640;
+    const int width = 640;
     const int height = 480;
     const int max_color_value = 255;
 
