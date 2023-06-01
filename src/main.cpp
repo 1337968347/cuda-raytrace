@@ -5,20 +5,16 @@
 
 int main(int argc, const char **argv)
 {
-    ImageData imageData(512, 512);
-    const char *fileName = "demo.ppm";
-    const unsigned int red = 255;
-    const unsigned int green = 0;
-    const unsigned int blue = 0;
-    const unsigned int alpha = 255;
-    for (int i = 200; i < 300; i++)
-    {
-        for (int j = 200; j < 400; j++)
-        {
-            imageData.setPixel(i, j, red, green, blue, alpha);
-        }
-    }
 
-    imageData.save(fileName);
+    Camera camera;
+    Vector eyePos(1.0, 0.0, 0.0);
+    camera.setEyePosition(eyePos);
+
+    const Transform viewTransform = camera.getViewTransform();
+
+    FILE *fp;
+    fp = fopen("example.txt", "w");
+    viewTransform.Print(fp);
+
     return 0;
 }

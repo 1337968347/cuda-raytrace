@@ -1,6 +1,4 @@
 #include "pbrt.h"
-#include "geometry.h"
-#include "transform.h"
 
 class Camera
 {
@@ -11,24 +9,25 @@ public:
     // y Rotate
     float y = 0.0;
     // 近截面
-    float near = 0.01;
+    float nearPlane = 0.01;
     // 远截面
-    float far = 1000;
+    float farPlane = 1000;
     // 视野范围
     float fov = 80;
-    // 相机事业 左右跟上下的比例
+    // 相机视野 左右跟上下的比例
     float aspect = 1.0;
 
-    Camera(/* args */);
+    Camera() : eyePosition(0, 0, 0), x(0), y(0), nearPlane(0.01), farPlane(1000), fov(80), aspect(1.0){};
 
     void setEyePosition(Vector pos)
     {
         eyePosition = pos;
     }
 
-    Transform getViewMatrix()
+    Transform getViewTransform()
     {
         Transform mat4;
+        mat4 = RotateY(y) * RotateX(x) * Translate(-eyePosition);
         return mat4;
     }
 };

@@ -42,3 +42,4 @@ inline float Radians(float deg)
 #include "quaternion.h"
 #include "shape.h"
 #include "image.h"
+#include "camera.h"
