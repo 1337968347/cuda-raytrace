@@ -30,4 +30,7 @@ public:
         mat4 = RotateY(y) * RotateX(x) * Translate(-eyePosition);
         return mat4;
     }
+
+    // 透视相机
+    Transform perspective();
 };
