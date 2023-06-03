@@ -215,6 +215,11 @@ public:
         return x != p.x || y != p.y || z != p.z;
     }
 
+    void Print(FILE *f) const
+    {
+        fprintf(f, "x: %f, y: %f, z: %f \n", x, y, z);
+    }
+
     float x, y, z;
 };
 

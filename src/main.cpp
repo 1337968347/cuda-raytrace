@@ -12,8 +12,17 @@ int main(int argc, const char **argv)
 
     const Transform viewTransform = camera.getViewTransform();
 
+    const Point p(0.0, 0.0, 0.0);
+
     FILE *fp;
     fp = fopen("example.txt", "w");
+
+    p.Print(fp);
+
+    const Point p1 = viewTransform(p);
+
+    p1.Print(fp);
+
     viewTransform.Print(fp);
 
     return 0;

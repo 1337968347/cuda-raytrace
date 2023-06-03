@@ -41,7 +41,7 @@ struct Matrix4x4 {
     friend Matrix4x4 Transpose(const Matrix4x4&);
 
     void Print(FILE* f) const {
-        fprintf(f, "[ ");
+        fprintf(f, "[ \n");
         for (int i = 0; i < 4; ++i) {
             fprintf(f, "  [ ");
             for (int j = 0; j < 4; ++j) {
