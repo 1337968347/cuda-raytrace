@@ -100,6 +100,12 @@ class Point
 public:
     Point() { x = y = z = 0.f; };
     Point(float xx, float yy, float zz) : x(xx), y(yy), z(zz){};
+    Point(const Vector &v)
+    {
+        x = v.x;
+        y = v.y;
+        z = v.z;
+    }
 
     Point(const Point &p)
     {

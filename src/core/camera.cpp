@@ -1,8 +1,3 @@
-#include "camera.h"
+#include "pbrt.h"
 
-Transform perspective()
-{
-    Transform perspective;
 
-    return perspective;
-}

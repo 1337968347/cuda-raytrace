@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include "./core/pbrt.h"
+#include "./core/geometry.cpp"
 #include "./core/transform.cpp"
 
 int main(int argc, const char **argv)
@@ -10,7 +11,7 @@ int main(int argc, const char **argv)
     Vector eyePos(1.0, 0.0, 0.0);
     camera.setEyePosition(eyePos);
 
-    const Transform viewTransform = camera.getViewTransform();
+    const Transform viewTransform = camera.perspective();
 
     const Point p(0.0, 0.0, 0.0);
 

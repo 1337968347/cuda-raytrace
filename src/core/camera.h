@@ -16,15 +16,24 @@ public:
     float fov = 80;
     // 相机视野 左右跟上下的比例
     float aspect = 1.0;
+    // 相机的图像的宽度和高度
+    float width = 256;
+    float height = 256;
 
     Camera() : eyePosition(0, 0, 0), x(0), y(0), nearPlane(0.01), farPlane(1000), fov(80), aspect(1.0){};
+
+    Transform getViewTransform();
+
+    Transform perspective();
+
+    void setEyePosition(Vector pos);
 
     void setEyePosition(Vector pos)
     {
         eyePosition = pos;
     }
 
-    Transform getViewTransform()
+    Transform getViewTransform() const
     {
         Transform mat4;
         mat4 = RotateY(y) * RotateX(x) * Translate(-eyePosition);
@@ -32,5 +41,21 @@ public:
     }
 
     // 透视相机
-    Transform perspective();
+    Transform perspective()
+    {
+        Transform perspective = Perspective(fov, nearPlane, farPlane);
+        return perspective;
+    };
+
+    // 获取一条光线
+    Ray getRay(int x, int y) const
+    {
+        Point ro(eyePosition);
+        Vector re(x - width / 2, y - height / 2, 1);
+        const Transform viewTransform = getViewTransform();
+        re = viewTransform(re);
+        Vector rd = Normalize(re);
+        Ray ray(ro, rd, 0.0, +INFINITY, 0.0, 0);
+        return ray;
+    }
 };

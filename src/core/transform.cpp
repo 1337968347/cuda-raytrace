@@ -1,6 +1,5 @@
 #include <iostream>
 #include "pbrt.h"
-#include "geometry.cpp"
 
 Matrix4x4::Matrix4x4(float mat[4][4])
 {
