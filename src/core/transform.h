@@ -68,10 +68,9 @@ struct Matrix4x4 {
 };
 
 class Transform {
-   private:
+   public:
     Matrix4x4 m, mInv;
 
-   public:
     Transform(){};
     Transform(const Matrix4x4& mat) : m(mat), mInv(Inverse(mat)) {}
     Transform(const Matrix4x4& mat, const Matrix4x4& mInv)

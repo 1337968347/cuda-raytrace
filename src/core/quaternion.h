@@ -51,6 +51,8 @@ struct Quaternion {
     Transform ToTransform() const;
     Quaternion(const Transform& t);
 
+    // 其中 w 是旋转角度，v 是旋转轴
+    // q = cos(w) + v * sin(w)
     Vector v;
     float w;
 };

@@ -19,14 +19,12 @@ public:
     // 相机的图像的宽度和高度
     float width = 256;
     float height = 256;
+    
+    Transform cameraToScreen, rasterToCamera;
+
+    Transform screenToRaster, rasterToScreen;
 
     Camera() : eyePosition(0, 0, 0), x(0), y(0), nearPlane(0.01), farPlane(1000), fov(80), aspect(1.0){};
-
-    Transform getViewTransform();
-
-    Transform perspective();
-
-    void setEyePosition(Vector pos);
 
     void setEyePosition(Vector pos)
     {

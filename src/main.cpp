@@ -11,6 +11,7 @@ int main(int argc, const char **argv)
     Vector eyePos(1.0, 0.0, 0.0);
     camera.setEyePosition(eyePos);
 
+    Ray ray = camera.getRay(0, 0);
     const Transform viewTransform = camera.perspective();
 
     const Point p(0.0, 0.0, 0.0);
