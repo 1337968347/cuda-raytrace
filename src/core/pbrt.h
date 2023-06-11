@@ -47,3 +47,4 @@ inline float Radians(float deg)
 #include "shape.h"
 #include "image.h"
 #include "camera.h"
+#include "sampler.h"
