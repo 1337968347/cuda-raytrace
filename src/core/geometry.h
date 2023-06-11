@@ -1,8 +1,5 @@
 #include "pbrt.h"
 
-class Point;
-
-class Normal;
 class Vector
 {
 public:

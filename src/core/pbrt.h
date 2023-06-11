@@ -14,6 +14,10 @@ using std::max;
 using std::min;
 using std::swap;
 
+class Point;
+
+class Normal;
+
 class Transform;
 
 // 插值
@@ -36,8 +40,8 @@ inline float Radians(float deg)
     return ((float)M_PI / 180.f) * deg;
 }
 
+#include "rng.h"
 #include "geometry.h"
-#include "probes.h"
 #include "transform.h"
 #include "quaternion.h"
 #include "shape.h"
