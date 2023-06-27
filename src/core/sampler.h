@@ -1,5 +1,7 @@
 #include "pbrt.h"
 
+class Sample;
+
 class Sampler
 {
 public:

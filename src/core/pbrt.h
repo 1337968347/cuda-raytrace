@@ -2,6 +2,11 @@
 
 #define M_PI 3.14159265358979323846f
 
+#if defined(_WIN32)
+#define PBRT_IS_WINDOWS
+#include <windows.h>
+#endif
+
 #include <math.h>
 #include <stdio.h>
 #include <string.h>
