@@ -4,6 +4,7 @@
 
 #if defined(_WIN32)
 #define PBRT_IS_WINDOWS
+
 #include <windows.h>
 #endif
 
@@ -24,6 +25,10 @@ class Point;
 class Normal;
 
 class Transform;
+
+class Shape;
+
+class DifferentialGeometry;
 
 // 插值
 inline float Lerp(float t, float v1, float v2)
@@ -49,7 +54,10 @@ inline float Radians(float deg)
 #include "geometry.h"
 #include "transform.h"
 #include "quaternion.h"
-#include "shape.h"
 #include "image.h"
 #include "camera.h"
 #include "sampler.h"
+#include "memory.h"
+#include "diffgeom.h"
+// #include "parrallel.h"
+#include "Shape.h"
