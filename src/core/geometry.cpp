@@ -1,5 +1,6 @@
 #include "pbrt.h"
 
+// 重新修改BBox的范围
 BBox Union(const BBox& b, const Point& p) {
     BBox ret = b;
     ret.pMin.x = min(b.pMin.x, p.x);

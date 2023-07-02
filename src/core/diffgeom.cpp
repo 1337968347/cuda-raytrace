@@ -10,4 +10,17 @@ DifferentialGeometry::DifferentialGeometry(const Point &p,
     v = vv;
     shape = sh;
     dudx = dvdx = dudx = dvdy = 0;
+
+    if (shape && (shape->ReverseOrientation ^ shape->TransformSwapsHandedness))
+        nn *= -1.f;
+}
+
+void DifferentialGeometry::ComputeDifferentials(
+    const RayDifferential &ray) const
+{
+    float d = -Dot(nn, Vector(p));
+    Vector rxv(ray.rxOrigin.x, ray.rxOrigin.y, ray.rxOrigin.z);
+    float tx = -(Dot(nn, rxv) + d) / Dot(nn, ray.rxDirection);
+
+    
 }

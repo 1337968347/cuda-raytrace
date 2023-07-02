@@ -9,7 +9,7 @@ private:
 public:
     Shape(const Transform *o2w, const Transform *w2o, bool ro);
     virtual ~Shape();
-    virtual BBox objectBound() const = 0;
+    virtual BBox ObjectBound() const = 0;
     virtual BBox WorldBound() const;
     virtual bool CanIntersect() const;
     // 细分
@@ -39,7 +39,7 @@ public:
     // Shape public Data
     const Transform *ObjectToWorld, *WorldToObject;
     // 是否面被反转， 是否切换了左右手坐标系
-    const bool ReverseOrientation, TransformsSwapsHandedness;
+    const bool ReverseOrientation, TransformSwapsHandedness;
     const uint32_t shapeId;
     // 下一个shape的id ， 自增
     static uint32_t nextshapeId;

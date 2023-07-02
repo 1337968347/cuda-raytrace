@@ -342,7 +342,9 @@ public:
     float time;
 };
 
-// 微分
+// RayDifferential是Ray的一个子类，它包含关于两个辅助射线的附加信息。
+// 这些额外的光线代表了与Film平面上的主射线和摄像机光线在x和y的方向上由一个样本偏移。
+// 通过确定这三道光线投射到被阴影的物体上的区域，纹理可以估计出一个区域来进行适当的反走样。
 class RayDifferential : public Ray
 {
 public:
@@ -363,6 +365,7 @@ public:
         hasDifferentials = false;
     };
 
+    // 差分光线
     void ScaleDifferentials(float s)
     {
         rxOrigin = o + (rxOrigin - o) * s;
