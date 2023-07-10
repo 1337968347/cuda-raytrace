@@ -1,5 +1,7 @@
 #include "pbrt.h"
 
+// 表示曲面上点的微分几何信息。
+// 它包含了曲面上某一点的位置、法线、切线、uv坐标以及其他与曲面几何相关的属性。
 struct DifferentialGeometry
 {
     DifferentialGeometry()

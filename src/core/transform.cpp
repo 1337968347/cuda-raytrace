@@ -279,6 +279,7 @@ Transform Transform::operator*(const Transform &t2) const
 
 bool Transform::SwapsHandedness() const
 {
+    // 行列式的值可以用来描述矩阵变换对空间体积的影响
     float det = ((m.m[0][0] *
                   (m.m[1][1] * m.m[2][2] -
                    m.m[1][2] * m.m[2][1])) -
@@ -288,6 +289,7 @@ bool Transform::SwapsHandedness() const
                  (m.m[0][2] *
                   (m.m[1][0] * m.m[2][1] -
                    m.m[1][1] * m.m[2][0])));
+    // 如果行列式的值 < 0， 说明交换了坐标系
     return det < 0.f;
 }
 

@@ -338,6 +338,7 @@ public:
     Point o;
     Vector d;
     mutable float mint, maxt;
+    // 光线在场景中进行反射、折射或散射等操作的次数
     int depth;
     float time;
 };
@@ -374,6 +375,7 @@ public:
         ryDirection = d + (ryDirection - d) * s;
     }
 
+    // 差分光线是否可用
     bool hasDifferentials;
     Point rxOrigin, ryOrigin;
     Vector rxDirection, ryDirection;

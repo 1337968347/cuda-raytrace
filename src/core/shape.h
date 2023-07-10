@@ -14,7 +14,8 @@ public:
     virtual bool CanIntersect() const;
     // 细分
     virtual void Refine(vector<Reference<Shape>> &refined) const;
-    virtual bool Intersect(const Ray &ray, float *tHit, float *rayEpsilon, RayDifferential *dg) const;
+    virtual bool Intersect(const Ray &ray, float *tHit, float *rayEpsilon, DifferentialGeometry
+     *dg) const;
     virtual bool IntersectP(const Ray &ray) const;
     virtual void GetShadingGeometry(const Transform &obj2world, const DifferentialGeometry &dg, DifferentialGeometry *dgShading) const
     {

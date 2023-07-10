@@ -206,6 +206,7 @@ inline void Transform::operator()(const Ray& r, Ray* rt) const {
     }
 }
 
+// 将给定的光线及其差分光线应用于当前的坐标变换对象，从而获得变换后的光线和差分光线。
 inline RayDifferential Transform::operator()(const RayDifferential& r) const {
     RayDifferential ret;
     (*this)(Ray(r), &ret);
@@ -227,11 +228,22 @@ inline void Transform::operator()(const RayDifferential& r,
     (*this)(r.ryDirection, &rt->ryDirection);
 }
 
-// class AnimatedTransform {
-//    public:
-//    private:
-//     const float startTime, endTime;
-//     const Transform *startTransform, *endTransform;
-//     const bool actuallyAnimated;
-//     Vector T[2];
-// };
+class AnimatedTransform {
+   public:
+   AnimatedTransform(const Transform *transform1, float time1,
+                    const Transform *transform2, float time2): 
+                    startTransform(transform1),startTime(time1),
+                     endTransform(transform2), endTime(time2), actuallyAnimated (*startTransform != *endTransform){
+                        Decompose(transform1->m, &T[0], &R[0], &S[0]);
+                        Decompose(transform1->m, &T[0], &R[0], &S[0]);
+                     }
+    static void Decompose(const Matrix4x4 &m, Vector *T, Quaternion *R, Matrix4x4 *S);
+
+   private:
+    const float startTime, endTime;
+    const Transform *startTransform, *endTransform;
+    const bool actuallyAnimated;
+    Vector T[2];
+    Quaternion R[2];
+    Matrix4x4 S[2];
+};
