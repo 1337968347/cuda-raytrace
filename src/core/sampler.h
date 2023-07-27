@@ -33,6 +33,7 @@ public:
     const float shutterOpen, shutterClose;
 
 protected:
+    // void ComputeSubWindow(int num, int count, int )
 };
 
 struct CameraSample

@@ -52,9 +52,9 @@ inline float Radians(float deg)
 
 #include "rng.h"
 #include "geometry.h"
-#include "transform.h"
 #include "quaternion.h"
-#include "image.h"
+#include "transform.h"
+#include "../film/image.h"
 #include "camera.h"
 #include "sampler.h"
 #include "memory.h"

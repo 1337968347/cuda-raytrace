@@ -11,7 +11,6 @@ int main(int argc, const char **argv)
     Vector pos(10.0, 20.0, 30.0);
     Transform t = RotateX(10) * Translate(pos);
 
-
     Quaternion q(t);
 
     q * 2.0;
@@ -28,9 +27,6 @@ int main(int argc, const char **argv)
 
     quaT.Print(fp);
     p.Print(fp);
-
-
-
 
     return 0;
 }
